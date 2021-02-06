@@ -20,17 +20,18 @@ from tg_bot.modules.helper_funcs.misc import paginate_modules
 PM_START_TEXT = """
 ✨Hey {}, I am ✨ {} ~.
 Im an Group Management Bot, feel free to add me to your groups!
-You can find my list of available commands with /help.
 
 """
 
 HELP_STRINGS = """
 
-Hey there! My name is *{}*.
+Hello {} ! i'm *{}*.
+I am an group management bot with necessary features, here to help you get around and keep the order in your groups!
 
--> I am a simple group management bot with necessary features, here to help you get around and keep the order in your groups!
--> I have lots of handy features, such as flood control, a warning system, a note keeping system, and even predetermined replies on certain keywords.
-
+Main Commands:
+-> /start: Start the bot
+-> /help: Give this message
+-> Triggers: /,!
 {}
 And the following:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll of the following commands  / or ! can  be used...\n")
@@ -125,13 +126,47 @@ def start(bot: Bot, update: Update, args: List[str]):
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
+                        else:
+            first_name = update.effective_user.first_name
+            update.effective_message.reply_photo(
+                SAITAMA_IMG,
+                PM_START_TEXT.format(
+                    escape_markdown(first_name),
+                    escape_markdown(context.bot.first_name)),
+                parse_mode=ParseMode.MARKDOWN,
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup(
+                    [[
+                        InlineKeyboardButton(
+                            text=" ⚜ Add me to your groups ⚜ ",
+                            url="t.me/{}?startgroup=true".format(
+                                context.bot.username)),
+                     ],
+                     [
+                        InlineKeyboardButton(
+                             text=" ✨ Help ",
+                             url="t.me/{}?start=help".format(
+                                 context.bot.username)",
+                        InlineKeyboardButton(
+                            text=" 🦅 Join KWS ",
+                            url="https://t.me/Kws_Team"),
+                     ],
+                     [ 
+                         InlineKeyboardButton(
+                             text=" ❤ Support ",
+                             url="https://t.me/Indian_Watch_Support))
+                    
+                    ]]))
         else:
             first_name = update.effective_user.first_name
             update.effective_message.reply_text(
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
                 parse_mode=ParseMode.MARKDOWN)
     else:
-        update.effective_message.reply_text("waked up😏😏😏")
+        update.effective_message.reply_text(
+            "👩‍💻Hey! I'm alive.\n⚙️All systems online and functioning normally!!\n<b>⏱ Alive time:</b> <code>{}</code>\n✨ Thanks for adding me! ✨"
+            .format(uptime),
+            parse_mode=ParseMode.HTML)
 
 
 # for test purposes
@@ -173,12 +208,12 @@ def help_button(bot: Bot, update: Update):
     try:
         if mod_match:
             module = mod_match.group(1)
-            text = "Here is the help for the *{}* module:\n".format(HELPABLE[module].__mod_name__) \
+            text = "You have selected *{}* module:\n".format(HELPABLE[module].__mod_name__) \
                    + HELPABLE[module].__help__
             query.message.reply_text(text=text,
                                      parse_mode=ParseMode.MARKDOWN,
                                      reply_markup=InlineKeyboardMarkup(
-                                         [[InlineKeyboardButton(text="Back", callback_data="help_back")]]))
+                                         [[InlineKeyboardButton(text="⬅ Back", callback_data="help_back")]]))
 
         elif prev_match:
             curr_page = int(prev_match.group(1))
