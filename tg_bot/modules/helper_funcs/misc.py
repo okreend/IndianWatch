@@ -51,7 +51,7 @@ def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
                                     callback_data="{}_module({},{})".format(prefix, chat, x.__mod_name__.lower())) for x
              in module_dict.values()])
 
-    pairs = list(zip(modules[1::2], modules[1::2]))
+    pairs = list(zip(modules[::2], modules[1::2]))
 
     if len(modules) % 2 == 1:
         pairs.append((modules[-1],))
@@ -61,7 +61,7 @@ def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
 
     # can only have a certain amount of buttons side by side
     if len(pairs) > 5:
-        pairs = pairs[modulo_page * 5:5 * (modulo_page + 1)] + [
+        pairs = pairs[modulo_page * 5:5:5 * (modulo_page + 1)] + [
             (EqInlineKeyboardButton("⬅️ Back 🔹", callback_data="{}_prev({})".format(prefix, modulo_page)),
              EqInlineKeyboardButton("🔸Next ➡️", callback_data="{}_next({})".format(prefix, modulo_page)))]
 
