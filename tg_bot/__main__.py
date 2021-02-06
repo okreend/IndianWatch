@@ -21,11 +21,12 @@ PM_START_TEXT = """
 ✨Hey {}, I am ✨ {} ~.
 Im an Group Management Bot, feel free to add me to your groups!
 You can get of my all available commands by sending /help.
+
 """
 
 HELP_STRINGS = """
 
-Hello {} ! i'm *{}*.
+Hello! i'm *{}*.
 I am an group management bot with necessary features, here to help you get around and keep the order in your groups!
 
 Main Commands:
