@@ -64,7 +64,7 @@ def warn(user: User, chat: Chat, reason: str, message: Message, warner: User = N
 
     else:http://t.me/IndianWatchRobot?start=-1001336053099
         keyboard = InlineKeyboardMarkup(
-            [[InlineKeyboardButton("Rules", callback_data="https://t.me/Indian_Watch_Rules/4".format(user.id))]])
+            [[InlineKeyboardButton("Rules", callback_data="https://t.me/Indian_Watch_Rules/4)".format(user.id))]])
 
         reply = "{} has {}/{} warnings... watch out!".format(mention_html(user.id, user.first_name), num_warns,
                                                              limit)
