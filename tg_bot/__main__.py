@@ -27,7 +27,7 @@ Send /help to get the list of available commands.
 HELP_STRINGS = """
 
 Hello! i'm *{}*.
-I am an group management bot with necessary features, here to help you get around and keep the order in your groups!
+I am an group management bot, here to help you get around and keep the order in your groups!
 
 Main Commands:
 -> /start: Start the bot
@@ -35,7 +35,6 @@ Main Commands:
 -> Triggers: /,!
 {}
 And the following:
-""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll of the following commands  / or ! can  be used...\n")
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
 It took lots of work for [my creator](t.me/SonOfLars) to get me to where I am now, and every donation helps \
