@@ -35,6 +35,7 @@ Main Commands:
 -> Triggers: /,!
 {}
 And the following:
+""".format(dispatcher.bot.first_name, "")
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
 It took lots of work for [my creator](t.me/SonOfLars) to get me to where I am now, and every donation helps \
