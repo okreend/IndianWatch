@@ -144,7 +144,7 @@ def start(bot: Bot, update: Update, args: List[str]):
                 parse_mode=ParseMode.MARKDOWN)
     else:
         update.effective_message.reply_text(
-            "👩‍💻Hey! I'm alive.\n⚙️All systems online and functioning normally!!\n<b>⏱ Alive time:</b> <code>{}</code>\n✨ Thanks for adding me! ✨"
+            "⚜Indian Watch Guard is alive.\n⚙️All systems online and functioning normally!!\n✨ Thanks for adding me! ✨"
             .format(uptime),
             parse_mode=ParseMode.HTML)
 
