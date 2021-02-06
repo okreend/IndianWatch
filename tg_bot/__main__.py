@@ -136,12 +136,7 @@ def start(bot: Bot, update: Update, args: List[str]):
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
-                    [[
-                         InlineKeyboardButton(
-                             text=" ❤ Support ",
-                             url="https://t.me/Indian_Watch_Support))
-                    
-                    ]]))
+
         else:
             first_name = update.effective_user.first_name
             update.effective_message.reply_text(
