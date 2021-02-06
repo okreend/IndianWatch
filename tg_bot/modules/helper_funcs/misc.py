@@ -53,7 +53,7 @@ def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
 
     pairs = list(zip(modules[1::3], modules[1::3]))
 
-    if len(modules) % 2 == 1:
+    if len(modules) % 3 == 1:
         pairs.append((modules[-1],))
 
     max_num_pages = ceil(len(pairs) / 6)
