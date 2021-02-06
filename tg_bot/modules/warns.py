@@ -62,9 +62,9 @@ def warn(user: User, chat: Chat, reason: str, message: Message, warner: User = N
                                                                   mention_html(user.id, user.first_name), 
                                                                   reason, num_warns, limit)
 
-    else:
+    else:http://t.me/IndianWatchRobot?start=-1001336053099
         keyboard = InlineKeyboardMarkup(
-            [[InlineKeyboardButton("Remove warn", callback_data="rm_warn({})".format(user.id))]])
+            [[InlineKeyboardButton("Rules", callback_data="http://t.me/IndianWatchRobot?start=-1001336053099".format(user.id))]])
 
         reply = "{} has {}/{} warnings... watch out!".format(mention_html(user.id, user.first_name), num_warns,
                                                              limit)
